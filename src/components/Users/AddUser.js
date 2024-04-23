@@ -225,7 +225,6 @@ const AddUser = (props) => {
       <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="email">Email</label>
-
           {list === null ||
           list.length === 0 ||
           list === "" ||
