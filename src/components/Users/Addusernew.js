@@ -8,7 +8,9 @@ import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 
 const AddUser = (props) => {
   const list = localStorage.getItem("updatedlist");
+  console.log(list);
   if (list === null || list.length === 0) {
+    console.log("true");
     const getError = "true";
     localStorage.setItem("getError", getError);
   }
@@ -78,6 +80,7 @@ const AddUser = (props) => {
 
   const errorHandler = () => {
     const forerror = JSON.parse(localStorage.getItem("updatedlist"));
+    console.log(forerror);
     if (forerror === null || forerror.length === 0) {
       setError("true");
       seterrormodal("false");
@@ -241,7 +244,6 @@ const AddUser = (props) => {
                 autoComplete="email"
                 onChange={clearemail}
                 style={styles.disabledinput}
-                disabled
               />
             </div>
           ) : (
@@ -292,7 +294,6 @@ const AddUser = (props) => {
               <input
                 id="password"
                 type={visible ? "text" : "password"}
-                value={password}
                 className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
                 placeholder="Enter Password"
                 onChange={clearpassword}
@@ -322,6 +323,7 @@ const AddUser = (props) => {
               <button
                 type="submit"
                 style={styles.enabledButton}
+                disabled
                 className="w-1/2 flex justify-center items-center text-center border border-transparent rounded-md shadow-sm text-sm text-white"
               >
                 Add User
